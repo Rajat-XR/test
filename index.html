@@ -6,6 +6,11 @@
     <title>I Love Alpine</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
+<style>
+    button[data-s = "true"]{
+        background-color: antiquewhite;
+    }
+</style>
 <body>
 <div x-data="{a: 0}">
     <button @click="a--">-</button>
@@ -17,10 +22,12 @@
         <p x-text="message + ' ' +'Rajat'"></p>
     </div>
     
-    <div x-data="{ imageUrl: 'i.jpg', isDisabled: true, width:'200px' }">
+    <div x-data="{ imageUrl: 'i.jpg', isDisabled: false, count: 20, b: false}">
+        <button @click="count+=25">Increase</button>
+        <button @click="b=!b">color</button>
         <button @click="isDisabled = !isDisabled">Toggle</button>
-        <img x-bind:src="imageUrl" x-bind:width="width" alt="Example Image">
-        <button x-bind:disabled="isDisabled">Click me</button>
+        <img :src="imageUrl" :width="count" alt="Example Image">
+        <button :disabled="isDisabled" :data-s="b">Click me</button>
     </div>
     
 </div>
