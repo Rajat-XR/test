@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love Alpine</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+<div x-data="{a: 0}">
+    <button @click="a--">-</button>
+    <button @mouseover="a++">+</button>
+    <button @click="a = 0">Reset</button>
+    <p x-text="a+5"></p>
+
+    <div x-data="{ message: 'Hello, Alpine!' }">
+        <p x-text="message + ' ' +'Rajat'"></p>
+    </div>
+    
+    <div x-data="{ imageUrl: 'i.jpg', isDisabled: true, width:'200px' }">
+        <button @click="isDisabled = !isDisabled">Toggle</button>
+        <img x-bind:src="imageUrl" x-bind:width="width" alt="Example Image">
+        <button x-bind:disabled="isDisabled">Click me</button>
+    </div>
+    
+</div>
+</body>
+</html>
